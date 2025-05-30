@@ -1,0 +1,33 @@
+# Node modules (if using Node later)
+node_modules/
+
+# Dependency directories
+bower_components/
+
+# Build output
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Env files (if using later for backend or deployment)
+.env
+.env.local
+.env.production
+.env.development
+
+# IDE/editor config
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+*.swp
+*.bak
+*.tmp

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberEDT – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .logo {
+      font-size: 3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      animation: pulse 2s infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #00ffff; }
+      50% { text-shadow: 0 0 20px #00ffff; }
+    }
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      min-height: 30px;
+    }
+    #countdown {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+    section {
+      margin: 20px 0;
+      max-width: 600px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+    p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      #countdown { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">CyberEDT</div>
+  <div class="tagline" id="tagline"></div>
+  <div id="countdown"></div>
+
+  <section>
+    <h2>🎓 Education</h2>
+    <p>Learn cybersecurity from scratch with our certified courses, workshops, and bootcamps built for students and professionals.</p>
+  </section>
+
+  <section>
+    <h2>🛡️ Defense</h2>
+    <p>CyberEDT provides awareness programs and real-time threat reporting to help protect individuals and organizations.</p>
+  </section>
+
+  <section>
+    <h2>🛠️ Tools</h2>
+    <p>Get early access to our suite of tools like ScamVault, CyberBuddy, PhishHunt, and more—designed to secure your digital world.</p>
+  </section>
+
+  <footer>© 2025 CyberEDT. All rights reserved.</footer>
+
+  <script>
+    const text = "Cybersecurity for the Next Generation.";
+    const tagline = document.getElementById("tagline");
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        tagline.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 75);
+      }
+    }
+    typeEffect();
+
+    const launchDate = new Date("2025-08-01T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    const updateCountdown = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        countdown.innerHTML = "We’re Live!";
+        clearInterval(updateCountdown);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
